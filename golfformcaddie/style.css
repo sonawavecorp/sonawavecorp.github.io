@@ -85,3 +85,61 @@ footer{border-top:1px solid var(--border);background:var(--bg-alt);padding:26px 
   .foot .copy{margin-left:0;width:100%}
   th,td{padding:9px 10px}
 }
+
+/* ---------- 소개 페이지 (index.html) ---------- */
+.page-wide{--max:1040px}
+.hero{text-align:center;padding:10px 0 4px}
+.hero .app-icon{width:104px;height:104px;border-radius:24px;box-shadow:var(--shadow);display:block;margin:0 auto 18px}
+.hero h1{font-size:38px;margin:0 0 10px}
+.hero .tagline{font-size:18px;color:var(--text-dim);margin:0 auto;max-width:620px}
+.hero .badge{
+  display:inline-block;margin-top:18px;padding:7px 16px;border-radius:999px;
+  background:var(--accent-soft);border:1px solid #d6e5ff;color:var(--blue-deep);
+  font-size:14px;font-weight:700;
+}
+.hero-shot{
+  width:100%;border-radius:var(--radius);margin:30px 0 8px;
+  box-shadow:var(--shadow);display:block;
+}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:16px 0 8px}
+.pillar{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px;
+}
+.pillar .n{
+  display:inline-flex;width:30px;height:30px;border-radius:9px;background:var(--blue);color:#fff;
+  align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-bottom:12px;
+}
+.pillar h3{margin:0 0 7px;font-size:17px}
+.pillar p{margin:0;color:var(--text-dim);font-size:15px}
+.shots{
+  display:flex;gap:16px;overflow-x:auto;padding:6px 2px 18px;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+}
+.shots img{
+  width:232px;flex:0 0 auto;border-radius:18px;border:1px solid var(--border);
+  box-shadow:var(--shadow);scroll-snap-align:center;
+}
+.shots.watch img{width:152px;border-radius:26px}
+.scroll-hint{font-size:13px;color:var(--text-dim);margin:-8px 0 0}
+.spec{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+.spec th,.spec td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--border)}
+.spec th{width:210px;background:var(--bg-alt);font-size:13px;color:var(--text-dim);font-weight:700}
+.flow{
+  background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px 18px;font:13px/1.9 ui-monospace,SFMono-Regular,Menlo,monospace;
+  white-space:pre;overflow-x:auto;color:var(--text-dim);margin:14px 0;
+}
+.note{
+  border-left:3px solid var(--cyan);background:var(--bg-alt);
+  padding:14px 16px;border-radius:0 10px 10px 0;margin:18px 0;font-size:15px;
+}
+.note p{margin:0;color:var(--text-dim)}
+@media (max-width:620px){
+  .hero h1{font-size:30px}
+  .hero .tagline{font-size:16px}
+  .nav-links a{padding:6px 8px;font-size:13px}
+  .spec th{width:auto}
+  .spec th,.spec td{display:block;border-bottom:0;padding:6px 10px}
+  .spec tr{display:block;border-bottom:1px solid var(--border);padding:6px 0}
+}
