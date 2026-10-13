@@ -92,11 +92,16 @@ footer{border-top:1px solid var(--border);background:var(--bg-alt);padding:26px 
 .hero .app-icon{width:104px;height:104px;border-radius:24px;box-shadow:var(--shadow);display:block;margin:0 auto 18px}
 .hero h1{font-size:38px;margin:0 0 10px}
 .hero .tagline{font-size:18px;color:var(--text-dim);margin:0 auto;max-width:620px}
-/* Apple 공식 배지 — 원본 비율 유지, 최소 높이 40px, 여백은 배지 높이의 1/4 이상 */
+/* Apple·Google 공식 배지 — 원본 비율 유지, 최소 높이 40px, 여백은 배지 높이의 1/4 이상.
+   Google 배지 PNG 는 여백이 그려 넣어져 있고 그 비율이 ko/en 이 달라(250→192 / 250→168)
+   그대로 쓰면 App Store 배지와 높이가 어긋납니다. 여백을 잘라낸 판본을 두고 간격은 여기서 줍니다. */
 .store-badge{display:inline-block;line-height:0;padding:12px}
 .store-badge[hidden]{display:none}
 .store-badge img{height:48px;width:auto;display:block}
 .hero .store-badge{margin-top:6px}
+/* 히어로의 두 배지를 한 줄로. 언어 전환이 이 컨테이너째 숨기므로 [hidden] 규칙이 필요합니다 */
+.store-badges{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center}
+.store-badges[hidden]{display:none}
 .cta .store-badge{align-self:center;padding:0 4px 0 0}
 .cta .store-badge img{height:44px}
 .hero-shot{

@@ -183,7 +183,26 @@ section{padding:80px 0;scroll-margin-top:64px}
   background:var(--accent-soft);color:var(--accent);border:1px solid transparent;
 }
 .tag.plain{background:transparent;border-color:var(--border);color:var(--text-dim)}
+/* 스토어로 나가는 태그. 같은 줄의 일반 태그와 생김새가 같으면 눌리는 줄 모르므로 화살표를 답니다 */
+a.tag{transition:color .15s ease, border-color .15s ease}
+a.tag::after{content:"\2197";margin-left:4px;font-weight:700;opacity:.65}
+a.tag:hover{text-decoration:none;color:var(--accent);border-color:var(--accent)}
+a.tag:hover::after{opacity:1}
 .app-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px;font-size:.9rem;font-weight:600}
+
+/* 소개 페이지가 있는 앱은 제목과 아이콘이 그 페이지로 가는 링크입니다.
+   카드 전체를 덮는 링크는 쓰지 않습니다 — 기능 목록 텍스트를 드래그할 수 없게 됩니다. */
+.app.linked{transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease}
+.app.linked:hover{
+  transform:translateY(-2px);
+  border-color:color-mix(in srgb, var(--accent) 38%, var(--border));
+  box-shadow:0 2px 4px rgba(11,27,51,.06), 0 14px 34px rgba(11,27,51,.10);
+}
+.app h3 a{color:inherit;display:inline-flex;align-items:center;gap:7px}
+.app h3 a:hover{color:var(--accent);text-decoration:none}
+.app h3 a .chev{transition:transform .15s ease;opacity:.5}
+.app h3 a:hover .chev{transform:translateX(3px);opacity:1}
+a.app-mark:hover{filter:brightness(1.08)}
 
 /* ---------- business ---------- */
 .biz{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
@@ -262,15 +281,15 @@ footer{
       <div class="apps">
 
         <!-- ADSFile -->
-        <article class="app">
-          <div class="app-mark" aria-hidden="true">
+        <article class="app linked">
+          <a class="app-mark" href="adsfile/" tabindex="-1" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.5h7A1.5 1.5 0 0 1 19 10v7.5A1.5 1.5 0 0 1 17.5 19h-13A1.5 1.5 0 0 1 3 17.5z"/>
               <path d="M11 15.5V11m0 0-2 2m2-2 2 2"/>
             </svg>
-          </div>
+          </a>
           <div>
-            <h3>ADSFile</h3>
+            <h3><a href="adsfile/">ADSFile<svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></h3>
             <p class="tagline">Synology NAS 파일 관리자</p>
             <p class="desc">
               Synology File Station API로 NAS에 로그인해 파일과 폴더를 탐색하고, NAS와 기기 저장소 사이에서
@@ -326,15 +345,15 @@ footer{
         </article>
 
         <!-- GolfFormCaddie -->
-        <article class="app">
-          <div class="app-mark" aria-hidden="true">
+        <article class="app linked">
+          <a class="app-mark" href="golfformcaddie/" tabindex="-1" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="4.6" r="2.1"/>
               <path d="M12 7.2v6m0 0-3 4.4m3-4.4 3 4.4M8.4 10.1 12 8.8l3.6 1.3"/>
             </svg>
-          </div>
+          </a>
           <div>
-            <h3>Golf Form Caddie</h3>
+            <h3><a href="golfformcaddie/">Golf Form Caddie<svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></h3>
             <p class="tagline">골프 스윙 촬영과 비교 분석</p>
             <p class="desc">
               실시간 포즈 분석으로 어드레스와 스윙을 감지해 자동으로 녹화하고, 촬영한 영상을 나란히 놓고
@@ -351,8 +370,8 @@ footer{
               <span class="tag">Android</span>
               <span class="tag">iOS</span>
               <span class="tag">Apple Watch</span>
-              <span class="tag plain">Google Play</span>
-              <span class="tag plain">App Store</span>
+              <a class="tag plain" href="https://play.google.com/store/apps/details?id=com.sonawavecorp.golfformcaddie" target="_blank" rel="noopener">Google Play</a>
+              <a class="tag plain" href="https://apps.apple.com/app/golf-form-caddie/id6813385838" target="_blank" rel="noopener">App Store</a>
             </div>
             <div class="app-links">
               <a href="golfformcaddie/">자세히 보기 →</a>
