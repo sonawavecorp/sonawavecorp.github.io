@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# JetBrains IDE (CLion/IntelliJ)
+.idea/
+
+# 편집기 임시 파일
+*.swp
+*~
+
+# 로컬 확인용 서버 로그 등
+*.log
